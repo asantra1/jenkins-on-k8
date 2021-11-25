@@ -12,3 +12,10 @@ ls -l /var/lib/k8s-pvs/jenkins/pvc-9450e76e-737b-4714-9ae6-66fe26b00046/
 > After checking the files, one can reestart the VM ( Docker Desktop) and check for the file persistence.
 
 3. Pay attention to periodically copy the working directory to S3 for backup.
+4. The Password of the jenkins can be obtained following the same
+```
+jsonpath="{.data.jenkins-admin-password}"
+secret=$(kubectl get secret -n jenkins jenkins -o jsonpath=$jsonpath)
+echo $(echo $secret | base64 --decode)
+```
+Running the above code , we found the password **q4WJkFfaMhI9skHBMt0vji**
