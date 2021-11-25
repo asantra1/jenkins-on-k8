@@ -19,3 +19,7 @@ secret=$(kubectl get secret -n jenkins jenkins -o jsonpath=$jsonpath)
 echo $(echo $secret | base64 --decode)
 ```
 Running the above code , we found the password **q4WJkFfaMhI9skHBMt0vji**
+5. You can find that the PORT 8080 is already in use, actually a local jenkins is using it , so stop the service
+```
+brew services stop jenkins-lts
+```
